@@ -11,10 +11,12 @@
 ## 目标
 
 - 封装核心的海报生成能力、保存能力；
-- 兼容性优良，满足内核低端设备；
+- 兼容性优良，满足 `webview` 内核低端设备；
 - `Headless` 特性，不封装任何 `CSS`;
 
 ## 组件设计
+
+在线导图：[Git Mind 导图传送门](https://gitmind.cn/app/docs/mqn5rh6w)
 
 ![](https://cdn.jsdelivr.net/gh/bigbigDreamer/pic-bed@main/uPic/75TdbH.png)
 

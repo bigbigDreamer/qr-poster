@@ -53,7 +53,7 @@ importers:
         specifier: ^0.54.2
         version: 0.54.2(webpack@5.83.1)
 
-  website:
+  example:
     dependencies:
       '@astrojs/react':
         specifier: ^2.2.0

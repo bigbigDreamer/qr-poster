@@ -7,7 +7,7 @@
   "typings": "./es/index.d.ts",
   "scripts": {
     "build": "rollup -c && tsc",
-    "docs": "pnpm run --filter website start",
+    "docs": "pnpm run --filter example start",
     "lint": "xo --fix"
   },
   "keywords": [],

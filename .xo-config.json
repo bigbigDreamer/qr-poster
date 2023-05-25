@@ -1,0 +1,18 @@
+{
+  "include": ["src/**"],
+  "ignores": [
+    "website/**",
+    "rollup.config.mjs",
+    "*.json",
+    "*.js",
+    "*.mjs",
+    "node_modules",
+    "es/**",
+    "*.yaml",
+    "*.md"
+  ],
+  "rules": {
+    "import/extensions": 0,
+    "@typescript-eslint/naming-convention": 0
+  }
+}

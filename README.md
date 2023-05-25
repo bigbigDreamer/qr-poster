@@ -1,5 +1,7 @@
 # 二维码海报组件
 
+[![XO code style](https://shields.io/badge/code_style-5ed9c7?logo=xo&labelColor=gray)](https://github.com/xojs/xo)
+
 基于 `React` 的，具备 `Headless Component` 特性的海报二维码组件。  
 
 ## 背景
@@ -19,6 +21,10 @@
 在线导图：[Git Mind 导图传送门](https://gitmind.cn/app/docs/mqn5rh6w)
 
 ![](https://cdn.jsdelivr.net/gh/bigbigDreamer/pic-bed@main/uPic/75TdbH.png)
+
+## Acknowledgement
+
+
 
 ## LICENSE
 

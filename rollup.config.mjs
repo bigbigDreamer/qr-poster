@@ -7,9 +7,12 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import cleaner from 'rollup-plugin-cleaner';
 import { swc, defineRollupSwcOption } from 'rollup-plugin-swc3';
 
+import pkg from './package.json' assert { type: "json" };
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+const external = [...(Object.keys(pkg.devDependencies) || []), ...(Object.keys(pkg.dependencies) || [])]
 
 export default defineConfig({
     makeAbsoluteExternalsRelative: true,
@@ -25,6 +28,7 @@ export default defineConfig({
         interop: 'compat',
         systemNullSetters: false
     },
+    external,
     plugins: [
         commonjs(),
         nodeResolve({ extensions }),

@@ -10,7 +10,7 @@ export async function to<T, U = Error>(
 	errorExt?: Record<string, unknown>,
 ): Promise<[U, undefined] | [undefined, T]> {
 	return promise
-		.then<[undefined, T]>((data: T) => [null, data])
+		.then<[undefined, T]>((data: T) => [undefined, data])
 		.catch<[U, undefined]>((error: U) => {
 		if (errorExt) {
 			const parsedError = Object.assign({}, error, errorExt);
@@ -20,5 +20,3 @@ export async function to<T, U = Error>(
 		return [error, undefined];
 	});
 }
-
-export default to;

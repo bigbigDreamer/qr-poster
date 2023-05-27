@@ -1,2 +1,2 @@
-
-export {default as QRPosterProvider} from './provider';
+export  * from './QRPoster'
+export type  * from './QRPoster'

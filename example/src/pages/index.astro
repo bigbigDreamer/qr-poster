@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { QRPosterProvider } from "../../../src/index.ts"
+import QRCodeDemo from "../components/QRCode.demo";
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<h1>QR Poster 演示</h1>
-		<QRPosterProvider/>
+		<hr>
+		<QRCodeDemo client:only="react"></QRCodeDemo>
 	</main>
 </Layout>
 

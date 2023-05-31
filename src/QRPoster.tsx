@@ -1,33 +1,22 @@
-import React, {FC, ReactNode, useCallback, useLayoutEffect, useRef, useState} from "react";
+import React, {FC, ReactNode, useCallback, useRef} from "react";
 import  { createPortal } from "react-dom";
 import html2canvas from "html2canvas";
-import { Poster } from "./poster";
+import {to} from "./util";
 
 export type QRPosterProps = {
-    render(props: { url: string;}): ReactNode | React.JSX.Element;
-    posterUrl: string;
-    children(props: { qrPosterUrl: string; generatePoster: () => void }): ReactNode | React.JSX.Element;
+    render(): ReactNode | React.JSX.Element;
+    children(props: { generatePoster: () => Promise<string> }): ReactNode | React.JSX.Element;
 }
-const QRPoster: FC<QRPosterProps> = ({ render, posterUrl, children }) => {
+const QRPoster: FC<QRPosterProps> = ({ render, children }) => {
 
-    const posterRef = useRef(new Poster({ url: posterUrl }));
-    const [url, setPosterUrl] = useState<string>('');
-    const [qrPosterUrl, setQRPosterUrl] = useState<string>('');
     const finalDom = useRef<HTMLDivElement>();
 
-    useLayoutEffect(() => {
-        posterRef.current.init()
-            .then(({ base64Url }) => {
-                setPosterUrl(base64Url);
-            })
-    }, []);
-
-    const generatePoster = () => {
-        html2canvas(finalDom.current as HTMLElement, { useCORS: true, x: 0, y: 0, backgroundColor: '#ffffff', scale: 1 })
-            .then(canvas => {
-                const baseUrl = canvas.toDataURL('image/png');
-                setQRPosterUrl(baseUrl);
-            })
+    const generatePoster = async () => {
+        const [err, canvas] = await to(html2canvas(finalDom.current as HTMLElement, { useCORS: true, x: 0, y: 0, backgroundColor: '#ffffff', scale: 1 }))
+        if(err) {
+            throw new Error(err?.message);
+        }
+        return canvas.toDataURL('image/png');
     }
 
     const domRefBind = useCallback((node: HTMLDivElement) => {
@@ -39,10 +28,10 @@ const QRPoster: FC<QRPosterProps> = ({ render, posterUrl, children }) => {
     return (
         <>
             {
-                createPortal(<div style={{ position: 'absolute', left: '-9999px', zIndex: 99, overflow: "hidden" }} ref={domRefBind}>{render({ url })}</div>, document.body)
+                createPortal(<div style={{ position: 'absolute', left: '-9999px', zIndex: 99, overflow: "hidden" }} ref={domRefBind}>{render()}</div>, document.body)
             }
             {
-                typeof children === 'function' ? children({ qrPosterUrl, generatePoster }) : children
+                typeof children === 'function' ? children({ generatePoster }) : children
             }
         </>
     )

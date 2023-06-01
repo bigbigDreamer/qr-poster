@@ -26,7 +26,8 @@
   "scripts": {
     "build": "rollup -c && tsc",
     "docs": "pnpm run --filter example start",
-    "lint": "xo --fix"
+    "lint": "xo --fix",
+    "release": "npm publish"
   },
   "author": "不换",
   "license": "MIT",

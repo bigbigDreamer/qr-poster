@@ -24,7 +24,7 @@
   "typings": "./es/src/index.d.ts",
   "sideEffets": false,
   "scripts": {
-    "build": "rollup -c && tsc",
+    "build": "NODE_ENV=production rollup -c && tsc --emitDeclarationOnly",
     "docs": "pnpm run --filter example start",
     "lint": "xo --fix",
     "release": "npm publish",

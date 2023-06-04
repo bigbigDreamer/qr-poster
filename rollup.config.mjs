@@ -14,6 +14,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const external = [...(Object.keys(pkg.devDependencies) || []), ...(Object.keys(pkg.dependencies) || [])]
 
+process.env.NODE_ENV = 'production';
+
 export default defineConfig({
     makeAbsoluteExternalsRelative: true,
     preserveEntrySignatures: 'strict',
@@ -52,7 +54,7 @@ export default defineConfig({
                         }
                     }
                 },
-                exclude: ['.*\\.js$', '.*\\.map$'],
+                exclude: ['.*\\.js$', '.*\\.map$', 'example'],
                 env: {
                     targets: 'Chrome >= 48',
                     // mode: 'usage',

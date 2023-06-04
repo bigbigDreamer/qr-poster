@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "lib": ["ESNext", "dom"],
@@ -28,6 +28,7 @@
     "jest.config.js",
     "babel.config.js",
     "vite.config.ts",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "example"
   ]
 }

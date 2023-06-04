@@ -1,11 +1,11 @@
-import React, {FC, ReactNode, useCallback, useRef} from "react";
+import {FC, ReactNode, useCallback, useRef} from "react";
 import  { createPortal } from "react-dom";
 import html2canvas from "html2canvas";
 import {to} from "./util";
 
 export type QRPosterProps = {
-    render(): ReactNode | React.JSX.Element;
-    children(props: { generatePoster: () => Promise<string> }): ReactNode | React.JSX.Element;
+    render(): ReactNode | JSX.Element;
+    children(props: { generatePoster: () => Promise<string> }): ReactNode | JSX.Element;
 }
 const QRPoster: FC<QRPosterProps> = ({ render, children }) => {
 

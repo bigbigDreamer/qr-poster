@@ -70,5 +70,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "pnpm run lint"
   }
 }

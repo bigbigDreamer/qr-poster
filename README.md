@@ -1,6 +1,13 @@
 # QR code poster component
 
+<p>
+
+[![npm](https://img.shields.io/npm/dy/@montagejs/qr-poster)](https://www.npmjs.com/package/@montagejs/qr-poster)
+[![GitHub](https://img.shields.io/github/license/bigbigDreamer/qr-poster)](https://github.com/bigbigDreamer/qr-poster/blob/main/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/bigbigDreamer/qr-poster)](https://github.com/bigbigDreamer/qr-poster)
 [![XO code style](https://shields.io/badge/code_style-5ed9c7?logo=xo&labelColor=gray)](https://github.com/xojs/xo)
+
+</p>
 
 English | [简体中文](./README.ZH.md)
 

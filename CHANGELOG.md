@@ -1,5 +1,11 @@
 # @montagejs/qr-poster
 
+## 1.2.1
+
+### Patch Changes
+
+- [#16](https://github.com/bigbigDreamer/qr-poster/pull/16) [`c433d30`](https://github.com/bigbigDreamer/qr-poster/commit/c433d300d378076879a1ae899d862f97954dd24b) Thanks [@bigbigDreamer](https://github.com/bigbigDreamer)! - docs: add some useful badge in readme
+
 ## 1.2.0
 
 ### Minor Changes

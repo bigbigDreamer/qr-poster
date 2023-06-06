@@ -6,6 +6,23 @@
 
 基于 `React` 的，具备 `Headless Component` 特性的海报二维码组件。
 
+## 安装
+
+```bash
+# npm
+$ npm i @montagejs/qr-poster --S
+# pnpm
+$ pnpm add @montagejs/qr-poster --S
+```
+
+## API
+
+| params | type                                                                                     | desc                | version |
+|--------|------------------------------------------------------------------------------------------|---------------------|---------|
+| `children` | `(props: {generatePoster: () => Promise<string>}) => ReactNode ｜ JSX.Element;`           | render props 模式的回调函数 | 1.0.0   |
+| `render` | `() => ReactNode                                                   ｜       JSX.Element;` | 即将渲染二维码海报的 `DOM`    | 1.0.0   |
+| `h2cOptions` | [`Options`](https://html2canvas.hertzen.com/configuration)                                                                                     | html2Canvas 方法的配置项  | 1.1.1   |
+
 ## 背景
 
 在常见的活动推广中，经常需要做宣传海报分享或者前台立牌做销售，我们希望可以进一步提升业务开发的效率；
@@ -23,6 +40,81 @@
 在线导图：[Git Mind 导图传送门](https://gitmind.cn/app/docs/mqn5rh6w)
 
 ![](https://cdn.jsdelivr.net/gh/bigbigDreamer/pic-bed@main/uPic/75TdbH.png)
+
+## 使用案例
+
+```tsx
+import type {FC} from 'react';
+import {useEffect, useState} from 'react';
+import {QRCodeCanvas} from 'qrcode.react';
+import {QrPoster} from '@montagejs/qr-poster';
+import './QRCode.demo.less';
+
+function getQRCodePositionByKnownPosition(knownPosition, posterWidth, posterHeight) {
+	const qrCodeWidth = 248;
+	const qrCodeHeight = 242;
+	const qrCodeX = (knownPosition.x / 704) * posterWidth;
+	const qrCodeY = posterHeight - qrCodeHeight - ((996 - knownPosition.y) / 996) * posterHeight - 242;
+	return {
+		x: qrCodeX,
+		y: qrCodeY,
+		width: qrCodeWidth,
+		height: qrCodeHeight,
+	};
+}
+
+const qr = getQRCodePositionByKnownPosition({x: 227, y: 902}, 1406, 1992);
+
+const QRCodeDemo: FC = () => {
+	const [isReset, setStatus] = useState(false);
+
+	return (
+		<QrPoster render={() => (
+			<div className='QRCodeWrapper'>
+				<img src='https://cdn.jsdelivr.net/gh/bigbigDreamer/pic-bed@main/uPic/Poster%201.png' crossOrigin='anonymous' />
+				<QRCodeCanvas
+					className='qrcode'
+					value='www.baidu.com'
+					size={248 * 2}
+					imageSettings={{
+						width: qr.width,
+						height: qr.height,
+					}}
+					style={{
+						top: qr.y,
+						left: qr.x,
+					}}
+				/>
+			</div>
+		)}>
+			{
+				({generatePoster}) => {
+					const [url, setUrl] = useState('');
+
+					useEffect(() => {
+						generatePoster()
+							.then(url => {
+								setUrl(url);
+							});
+						setStatus(false);
+					}, []);
+
+					return (
+						(
+							<>
+								<div className='demo-wrapper'>
+                                    <img src={url} />
+								</div>
+							</>
+						)
+					);
+				}
+			}
+		</QrPoster>
+	);
+};
+
+```
 
 ## 致敬
 

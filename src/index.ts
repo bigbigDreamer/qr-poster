@@ -1,2 +1,2 @@
-export  * from './QRPoster'
-export type  * from './QRPoster'
+export * from './qr-poster';
+export type * from './qr-poster';

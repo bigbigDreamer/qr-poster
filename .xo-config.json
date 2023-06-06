@@ -1,7 +1,7 @@
 {
   "include": ["src/**"],
   "ignores": [
-    "website/**",
+    "example/**",
     "rollup.config.mjs",
     "*.json",
     "*.js",

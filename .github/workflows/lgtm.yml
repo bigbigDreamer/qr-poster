@@ -1,4 +1,4 @@
-name: lgtm workflow
+name: lgtm workflow auto merge
 
 on:
   pull_request_review:

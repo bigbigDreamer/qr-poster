@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: lgtm action
-        uses: docker://jonyhy/lgtm-action:v1
+        uses: jonyhy96/lgtm-action@v1.1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

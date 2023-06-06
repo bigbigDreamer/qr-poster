@@ -1,5 +1,11 @@
 # @montagejs/qr-poster
 
+## 1.2.2
+
+### Patch Changes
+
+- [#19](https://github.com/bigbigDreamer/qr-poster/pull/19) [`81e2194`](https://github.com/bigbigDreamer/qr-poster/commit/81e2194986e9ddef1511829594f79ae9b95685d5) Thanks [@bigbigDreamer](https://github.com/bigbigDreamer)! - feat: add lgtm workflow
+
 ## 1.2.1
 
 ### Patch Changes

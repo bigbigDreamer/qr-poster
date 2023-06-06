@@ -3,7 +3,7 @@ name: Create Pull Request
 on:
   push:
     branches:
-      - 'feature*'
+      - 'feature/*'
 
 jobs:
   create_pull_request:

@@ -28,7 +28,8 @@
     "docs": "pnpm run --filter example start",
     "lint": "xo --fix",
     "release": "npm publish",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "prepare": "husky install"
   },
   "author": "不换",
   "license": "MIT",
@@ -49,6 +50,8 @@
     "eslint-config-xo-react": "^0.27.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.23.0",
@@ -67,5 +70,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "pnpm run lint"
   }
 }

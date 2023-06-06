@@ -1,0 +1,21 @@
+name: Create Pull Request
+
+on:
+  push:
+    branches:
+      - 'feature*'
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create Pull Request
+        if: github.ref_type == 'branch'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          title: 'New Pull Request'
+          body: 'Please review and merge this pull request.'

@@ -1,5 +1,15 @@
 # @montagejs/qr-poster
 
+## 1.2.0
+
+### Minor Changes
+
+- [#11](https://github.com/bigbigDreamer/qr-poster/pull/11) [`152c745`](https://github.com/bigbigDreamer/qr-poster/commit/152c7457b4462d06ec9d63a3273df0b48ced1ab4) Thanks [@bigbigDreamer](https://github.com/bigbigDreamer)! - perf: remove unnecessary inside style and support config html2canvas Options
+
+### Patch Changes
+
+- [#11](https://github.com/bigbigDreamer/qr-poster/pull/11) [`152c745`](https://github.com/bigbigDreamer/qr-poster/commit/152c7457b4462d06ec9d63a3273df0b48ced1ab4) Thanks [@bigbigDreamer](https://github.com/bigbigDreamer)! - docs: add api and usage to readme
+
 ## 1.1.0
 
 ### Minor Changes

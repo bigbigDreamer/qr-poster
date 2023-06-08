@@ -1,17 +1,21 @@
-name: Auto Merge PRs
-
+name: LGTM
 on:
   issue_comment:
     types: [created]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
 
 jobs:
-  merge:
+  lgtm:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: LGTM
+        uses: Doarakko/action-lgtmoon/@v1.5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
       - name: Merge PR
-        if: github.event.review.state == 'approved' && contains(github.event.review.body, 'LGTM')
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

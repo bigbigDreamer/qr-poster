@@ -15,6 +15,10 @@ jobs:
         uses: Doarakko/action-lgtmoon/@v1.5
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
+      - name: Auto Label
+        uses: srvaroa/labeler@master
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: Merge PR
         uses: "pascalgn/automerge-action@v0.15.6"
         env:

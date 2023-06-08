@@ -1,0 +1,6 @@
+version: 1
+labels:
+  - label: "WIP"
+    mergeable: false
+  - label: "automerge"
+    mergeable: True

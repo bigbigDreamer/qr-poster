@@ -1,18 +1,17 @@
-name: lgtm workflow
+name: Auto Merge PRs
 
 on:
-  pull_request_review:
   issue_comment:
+    types: [created]
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-16.04
-    timeout-minutes: 1
+  merge:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: lgtm action
-        uses: jonyhy96/lgtm-action@v1.1.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Merge PR
+        if: github.event.review.state == 'approved' && contains(github.event.review.body, 'LGTM')
+        uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

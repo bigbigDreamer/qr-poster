@@ -31,7 +31,7 @@ const QrPoster: FC<QRPosterProps> = ({render, children, h2cOptions}) => {
 	return (
 		<>
 			{
-				createPortal(<div style={{position: 'absolute', left: '-9999px'}} ref={domRefBind}>{render()}</div>, document.body)
+				createPortal(<div style={{position: 'absolute', transform: 'translateX(-9999px)'}} ref={domRefBind}>{render()}</div>, document.body)
 			}
 			{
 				typeof children === 'function' ? children({generatePoster}) : children

@@ -27,7 +27,7 @@
     "build": "NODE_ENV=production rollup -c && tsc --emitDeclarationOnly",
     "docs": "pnpm run --filter example start",
     "lint": "xo --fix",
-    "release": "npm publish",
+    "release": "pnpm publish",
     "changeset": "changeset",
     "prepare": "husky install"
   },

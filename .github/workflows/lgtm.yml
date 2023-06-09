@@ -7,6 +7,8 @@ on:
   pull_request_review_comment:
     types: [ created ]
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   lgtm:
     runs-on: ubuntu-latest
@@ -24,3 +26,34 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_LABELS: ""
+      - name: Checkout Repo And Start Changeset
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install Dependencies
+        run: pnpm i
+
+
+      - name: Build Dependencies
+        run: pnpm run build
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

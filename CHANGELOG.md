@@ -1,5 +1,15 @@
 # @montagejs/qr-poster
 
+## 1.2.3
+
+### Patch Changes
+
+- [#24](https://github.com/bigbigDreamer/qr-poster/pull/24) [`31cdf77`](https://github.com/bigbigDreamer/qr-poster/commit/31cdf77902da48fc92a0bdd75ffb3daaab685e5b) Thanks [@github-actions](https://github.com/apps/github-actions)! - Changes by create-pull-request action
+
+- [#23](https://github.com/bigbigDreamer/qr-poster/pull/23) [`b35837d`](https://github.com/bigbigDreamer/qr-poster/commit/b35837dac972620a426cbc8c25c736e88a047b0d) Thanks [@github-actions](https://github.com/apps/github-actions)! - perf: use transform replace left
+
+- [#22](https://github.com/bigbigDreamer/qr-poster/pull/22) [`5dfc0db`](https://github.com/bigbigDreamer/qr-poster/commit/5dfc0db5c0dc42a7bdac5fa2b7348d2936951311) Thanks [@github-actions](https://github.com/apps/github-actions)! - perf: use transform replace left
+
 ## 1.2.2
 
 ### Patch Changes

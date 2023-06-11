@@ -1,0 +1,40 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger deployment
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout # 将仓库内master分支的内容下载到工作目录
+        uses: actions/checkout@v3 # 脚本来自 https://github.com/actions/checkout
+        with:
+          ref: main
+      - name: Use Node.js 16 # 配置Node
+        uses: actions/setup-node@v3 # 配置脚本来自 https://github.com/actions/setup-node
+        with:
+          node-version: "16"
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+        id: pnpm-install
+        with:
+          version: 6
+          run_install: false
+
+      - run: pnpm install
+      - run: pnpm run docs:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./example/dist
+          cname: qr-poster-playground.bigdreamer.cc
+          allow_empty_commit: true
+          commit_message: ${{ github.event.head_commit.message }}
+          #          publish_branch: main
+          force_orphan: true

@@ -26,6 +26,7 @@
   "scripts": {
     "build": "NODE_ENV=production rollup -c && tsc --emitDeclarationOnly",
     "docs": "pnpm run --filter example start",
+    "docs:build": "pnpm run --filter example build",
     "lint": "xo --fix",
     "release": "pnpm publish",
     "changeset": "changeset",
